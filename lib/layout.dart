@@ -1,53 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_web_dashboard/constants/style.dart';
-import 'package:flutter_web_dashboard/widgets/custom_text.dart';
+import 'package:flutter_web_dashboard/widgets/large_screen.dart';
+import 'package:flutter_web_dashboard/widgets/responsive_widget.dart';
+import 'package:flutter_web_dashboard/widgets/small_screen.dart';
+
+import 'widgets/top_nav_bar.dart';
 
 class SiteLayout extends StatelessWidget {
-  const SiteLayout({Key key}) : super(key: key);
+  const SiteLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: [
-          Expanded(
-              child: Container(
-            color: dark,
-            child: ListView(
-              children: [
-                SizedBox(height: 40,),
-               Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:12),
-                        child: SvgPicture.asset("assets/icons/logo.svg"),
-                      ),
-                      CustomText(
-                        text: "Admin Panel",
-                        size: 20,
-                        weight: FontWeight.bold,
-                        color: lightGgrey,
-                      )
-                    ],
-                  )
-
-              ],
-            ),
-          )),
-          Expanded(
-              flex: 5,
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-
-                      Text(MediaQuery.of(context).size.width.toString() + "Hallend", style: TextStyle(fontSize: 39)),
-                  ],
-
-                ),
-              )),
-        ],
+      appBar: TopNavBar(),
+      body: ResponsiveWidget(
+        largeScreen: LargeScreen(),
+        smallScreen: SmallScreen(),
       ),
     );
   }
