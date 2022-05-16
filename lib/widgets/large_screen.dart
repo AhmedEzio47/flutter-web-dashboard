@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../constants/style.dart';
-import 'custom_text.dart';
 
 class LargeScreen extends StatelessWidget {
   const LargeScreen({Key? key}) : super(key: key);
@@ -18,20 +16,6 @@ class LargeScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: 40,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: SvgPicture.asset("assets/icons/logo.svg"),
-                  ),
-                  CustomText(
-                    text: "Admin Panel",
-                    size: 20,
-                    weight: FontWeight.bold,
-                    color: kLightGrey,
-                  )
-                ],
               ),
             ],
           ),
